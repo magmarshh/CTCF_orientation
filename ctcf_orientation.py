@@ -114,7 +114,7 @@ def main(argv):
     print('Output file is ', outputfile)
     loop_df = pandas.read_csv(loopfile, names=['chrom1', 'start1', 'end1', 'chrom2', 'start2', 'end2'],
                                            delimiter='\t')
-    motif_df = pandas.read_csv(motiffile, usecols=[0,1,2],
+    motif_df = pandas.read_csv(motiffile,
                               names=['chrom', 'start', 'end', 'name', 'score', 'strand', 'pvalue', 'qvalue', 'seq'],
                               delimiter='\t')
     ctcf_orientation_counts = original_compute_ctcf(loop_df,motif_df)
