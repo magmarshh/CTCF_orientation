@@ -74,8 +74,7 @@ def original_compute_ctcf(loop_df, ctcf_df):
             elif '-' in loop_anchor_1_list and '+' in loop_anchor_2_list:
                 divergent += 1
 
-    orientation_counts = {'Convergent': convergent, 'Tandem': tandem, 'Divergent': divergent,
-                          'Single': single, 'None': none}
+    orientation_counts = [convergent, tandem, divergent, single, none]
     return orientation_counts
 
 
