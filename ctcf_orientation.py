@@ -82,16 +82,17 @@ def main(argv):
 
     loopfile = ''
     motiffile = ''
-    outputfile = ''
+    output_diff_file = ''
+    output_breakdown_file = ''
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hl:m:o:", ["lfile=", "mfile=", "ofile="])
     except getopt.GetoptError as err:
-        print('ctcf_orientation.py -l <loopfile> -m <motiffile> -o <outputfile>')
+        print('ctcf_orientation.py -l <loopfile> -m <motiffile> -o <output_diff_file>')
         print(err)
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('ctcf_orientation.py -l <loopfile> -m <motiffile> -o <outputfile>',
+            print('ctcf_orientation.py -l <loopfile> -m <motiffile> -o <output_diff_file>',
                   '\n **This script allows you to visualize the distribution of CTCF orientation within the loops of the '
                   'given loop file. Outputs a piechart of CTCF orientation.**',
                   '\n **Requires: python 3.9, pandas 1.2.4 and matplotlib**',
@@ -100,31 +101,44 @@ def main(argv):
                   '\n \t -m <motiffile> : Motif file in bed format, must be: chromosome start end name strength '
                   'orientation '
                   'pvalue qvalue sequence',
-                  '\n \t -o <outputfile> : Desired name of output pie chart in matplotlib accepted picture format.')
+                  '\n \t -o <output_diff_file> : Desired name of output pie chart in matplotlib accepted picture format.')
             sys.exit()
         elif opt in ("-l", "--lfile"):
             loopfile = arg
         elif opt in ("-m", "--mfile"):
             motiffile = arg
         elif opt in ("-o", "--ofile"):
-            outputfile = arg
+            output_diff_file = arg
+            temp = output_diff_file.split(".")
+            output_breakdown_file = temp[0] + "_breakdown." + temp[1]
     print('Loop file is ', loopfile)
     print('Motif file is ', motiffile)
-    print('Output file is ', outputfile)
+    print('Output file is ', output_diff_file)
     loop_df = pandas.read_csv(loopfile, names=['chrom1', 'start1', 'end1', 'chrom2', 'start2', 'end2'],
                                            delimiter='\t')
     motif_df = pandas.read_csv(motiffile,
                               names=['chrom', 'start', 'end', 'name', 'score', 'strand', 'pvalue', 'qvalue', 'seq'],
                               delimiter='\t')
     ctcf_orientation_counts = original_compute_ctcf(loop_df,motif_df)
-    labels = ['Convergent', 'Tandem', 'Divergent', 'Single', 'None']
+    ctcf_diff = [sum(ctcf_orientation_counts[:4]), ctcf_orientation_counts[4]]
+    diff_labels = ['Differential', 'Non-differential']
+    labels = ['Convergent', 'Tandem', 'Divergent', 'Single']
 
     ### Plot
-    plt.pie(ctcf_orientation_counts, autopct='%1.1f%%',
+    plt.clf()
+    plt.pie(ctcf_orientation_counts[:4], autopct='%1.1f%%',
             shadow=True, startangle=90)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.legend(labels)
-    plt.savefig(outputfile)
+    plt.savefig(output_diff_file)
+    plt.clf()
+
+    plt.pie(ctcf_diff, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.legend(diff_labels)
+    plt.savefig(output_breakdown_file)
+    plt.clf()
 
 
 
