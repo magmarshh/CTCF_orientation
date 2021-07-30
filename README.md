@@ -29,6 +29,7 @@ ctcf_orientation.py -l ./test_data/data/grubert_hg19_gm12878_original_loops.bed 
 
 ## Thanks 
 - [CTCF](https://github.com/mdozmorov/CTCF), Source for CTCF motif files and ideas. 
+- [CTCF_orientation](https://github.com/magmarshh/CTCF_orientation), source of core program and root of all code
 
 
 
