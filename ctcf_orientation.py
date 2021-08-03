@@ -48,11 +48,11 @@ def find_strand(ctcf_df, loop_chrom, loop_row, strand_num):
         # return the strand values for every location in the ctcf dataframe subset which contains EITHER:
         # a CTCF start site between the first start and end boundaries of the loop row OR
         # a CTCF end site betwen the first start and end boundaries of the loop row
-        return ctcf_chr.loc[((ctcf_chr['start'] >= loop_row['start1']) & (ctcf_chr['start'] <= loop_row['end1'])) |
+        return ctcf_chr.loc[((ctcf_chr['start'] >= loop_row['start1']) & (ctcf_chr['start'] <= loop_row['end1'])) &
                             ((ctcf_chr['end'] >= loop_row['start1']) &
                              (ctcf_chr['end'] <= loop_row['end1'])), 'strand'].tolist()
     # same thing as above for anchor list 2,
-    return ctcf_chr.loc[((ctcf_chr['start'] >= loop_row['start2']) & (ctcf_chr['start'] <= loop_row['end2'])) |
+    return ctcf_chr.loc[((ctcf_chr['start'] >= loop_row['start2']) & (ctcf_chr['start'] <= loop_row['end2'])) &
                         ((ctcf_chr['end'] >= loop_row['start2']) &
                          (ctcf_chr['end'] <= loop_row['end2'])), 'strand'].tolist()
 
