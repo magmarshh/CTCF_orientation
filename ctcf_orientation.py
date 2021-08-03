@@ -116,7 +116,7 @@ def plot_output(ctcf_orientation_counts, outputfile):
     # Plot
     plt.clf()
     plt.pie(ctcf_orientation_counts, autopct='%1.1f%%',
-            shadow=True, startangle=90)
+            shadow=False, startangle=90)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.legend(labels)
     plt.savefig(outputfile)
