@@ -18,7 +18,7 @@ ctcf_orientation.py -l <loopfile> -m <motiffile> -o <outputfile>
 
 - -l; loop file: Pairedbed file of loops with the format "chromosome1 anchor1_start anchor1_end chromosome2 anchor2_start anchor2_end"
 - -m; motif file: CTCF motif file in the format "chromosome start end name strength orientation pvalue qvalue sequence", although only "chromosome start end" will be used, with the other columns optional. 
-- -o; output file: Desired file name for the outputted piechart with extensions available in matplotlib. 
+- - -o; output file: Desired file name for the outputted piechart with extensions available in matplotlib.
 - h; help: Helpful information for usage. 
 
 ## Example 
@@ -29,6 +29,7 @@ ctcf_orientation.py -l ./test_data/data/grubert_hg19_gm12878_original_loops.bed 
 
 ## Thanks 
 - [CTCF](https://github.com/mdozmorov/CTCF), Source for CTCF motif files and ideas. 
+- [CTCF_orientation](https://github.com/magmarshh/CTCF_orientation), source of core program and root of all code
 
 
 
