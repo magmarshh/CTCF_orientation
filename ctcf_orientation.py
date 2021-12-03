@@ -5,7 +5,6 @@ Executable python script that takes in a paired bed file (loops in the format of
 chromosome1 anchor1_start   anchor1_end chromosome2 anchor2_start   anchor2_end)
 and CTCF motif file and outputs the number of loops in the paired bed file that have
 convergent, tandem, divergent, single, and none CTCF motifs.
-
 """
 import getopt
 import pandas
@@ -184,26 +183,8 @@ def initialize():
     print('Loop file is ', loopfile)
     print('Motif file is ', motiffile)
     print('Output file is ', outputfile)
-<<<<<<< HEAD
-    loop_df = pandas.read_csv(loopfile, names=['chrom1', 'start1', 'end1', 'chrom2', 'start2', 'end2'],
-                                           delimiter='\t')
-    motif_df = pandas.read_csv(motiffile,
-                              names=['chrom', 'start', 'end', 'name', 'score', 'strand', 'pvalue', 'qvalue', 'seq'],
-                              delimiter='\t')
-    ctcf_orientation_counts = original_compute_ctcf(loop_df,motif_df)
-    labels = ['Convergent', 'Tandem', 'Divergent', 'Single', 'None']
-
-    ### Plot
-    plt.pie(ctcf_orientation_counts, autopct='%1.1f%%',
-            shadow=True, startangle=90)
-    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    plt.legend(labels)
-    plt.savefig(outputfile)
-
-
-=======
     return loopfile, motiffile, outputfile
->>>>>>> f08f658b4dc16b4d3e55e5a95b01912ee5d38dba
+
 
 if __name__ == "__main__":
     main()
