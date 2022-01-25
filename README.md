@@ -18,7 +18,7 @@ ctcf_orientation.py -l <loopfile> -m <motiffile> -o <outputfile>
 
 - -l; loop file: chromatin loop file in bedpe format (see [bedtools documentation](https://bedtools.readthedocs.io/en/latest/content/general-usage.html) for more information), with or without a header row. 
 - -m; motif file: CTCF motif file in the format "chromosome start end name strength orientation pvalue qvalue sequence", although only "chromosome start end" will be used, with the other columns optional. 
-- - -o; output file: Desired file name for the outputted piechart with extensions available in matplotlib.
+- -o; output file: Desired file name for the outputted piechart with extensions available in matplotlib.
 - h; help: Helpful information for usage. 
 
 ## Output
