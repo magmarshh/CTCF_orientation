@@ -1,6 +1,6 @@
 <p align="center">
     CTCF_orientation
-     <img src="https://github.com/magmarshh/CTCF_orientation/blob/main/piechart.png" width="220" height="240" />
+     <img src="https://github.com/magmarshh/CTCF_orientation/blob/main/piechart.png" width="500" height="500" />
     
 </p>
 
