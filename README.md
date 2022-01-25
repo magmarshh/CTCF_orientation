@@ -1,9 +1,6 @@
 <p align="center">
-    
-     <img src="https://github.com/magmarshh/CTCF_orientation/blob/main/piechart.png" width="400" height="300" style="vertical-align:middle;margin:0px 50px" />
-    
-    
-    <big>CTCF_orientation</big>
+  <img src="https://github.com/magmarshh/CTCF_orientation/blob/main/piechart.png" width="400" height="300" style="vertical-align:middle;margin:0px 50px" />
+  <big>CTCF_orientation</big>
 </p>
 
 CTCF_orientation is a python tool that produces a pie chart visualizing the CTCF orientation of chromatin loops in a given loop file. 
