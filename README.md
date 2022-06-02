@@ -13,7 +13,7 @@ CTCF_orientation is a python tool that produces a pie chart visualizing the CTCF
 - pandas 
 - matplotlib
 
-```{bash}
+```{bash echo=FALSE}
 conda create -n ctcf_orientation -y python pandas matplotlib
 conda activate ctcf_orientation
 ```
@@ -37,7 +37,7 @@ CTCF_orientation produces a pie chart showing the distribution of CTCF motifs in
 ## Example 
 
 ```{bash echo=FALSE}
-ctcf_orientation.py -l ./test_data/data/grubert_hg19_gm12878_original_loops.bed -m ./test_data/CTCF.bed -o ./test_data/gm12878_hg19_grubert_loops_ctcf_piechart.svg
+ctcf_orientation.py -l ./test_data/grubert_hg19_gm12878_original_loops.bed -m ./test_data/CTCF.bed -o ./test_data/gm12878_hg19_grubert_loops_ctcf_piechart.svg
 ```
 
 ## Thanks 
