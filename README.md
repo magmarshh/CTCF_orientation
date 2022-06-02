@@ -13,6 +13,10 @@ CTCF_orientation is a python tool that produces a pie chart visualizing the CTCF
 - pandas 
 - matplotlib
 
+```{bash}
+conda create -n ctcf_orientation -y python pandas matplotlib
+conda activate ctcf_orientation
+```
 
 ## Usage
 
